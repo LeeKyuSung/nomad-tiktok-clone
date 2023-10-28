@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/constants/gaps.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
 
 void main() {
   runApp(const TikTokApp());
@@ -16,10 +18,16 @@ class TikTokApp extends StatelessWidget {
         //   useMaterial3: true,
         // ),
         theme: ThemeData(primaryColor: const Color(0xFFE9435A)),
-        home: Container(
-          child: const Center(
-            child: Text('Hello, world!'),
-          ),
+        home: Padding(
+          padding: const EdgeInsets.all(Sizes.size14),
+          child: Container(
+              child: const Row(
+            children: [
+              Text("Hello"),
+              Gaps.h20,
+              Text("World"),
+            ],
+          )),
         ));
   }
 }
