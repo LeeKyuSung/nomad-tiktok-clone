@@ -43,7 +43,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         type: BottomNavigationBarType.shifting,
         currentIndex: _selectedIndex,
         onTap: _onTap,
-        //selectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: Theme.of(context).primaryColor,
         items: const [
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.house),
@@ -56,6 +56,24 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             label: "Search",
             tooltip: "What are you?",
             backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+            label: "Search",
+            tooltip: "What are you?",
+            backgroundColor: Colors.pink,
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+            label: "Search",
+            tooltip: "What are you?",
+            backgroundColor: Colors.yellow,
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+            label: "Search",
+            tooltip: "What are you?",
+            backgroundColor: Colors.teal,
           ),
         ],
       ),
