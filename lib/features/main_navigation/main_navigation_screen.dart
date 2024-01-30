@@ -61,7 +61,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
         child: Padding(
-          padding: const EdgeInsets.all(Sizes.size12),
+          padding: const EdgeInsets.all(Sizes.size3),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
