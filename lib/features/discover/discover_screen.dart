@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -13,16 +14,43 @@ final tabs = [
   "Brands",
 ];
 
-class DiscoverScreen extends StatelessWidget {
+class DiscoverScreen extends StatefulWidget {
   const DiscoverScreen({super.key});
+
+  @override
+  State<DiscoverScreen> createState() => _DiscoverScreenState();
+}
+
+class _DiscoverScreenState extends State<DiscoverScreen> {
+  final TextEditingController _textEditingController =
+      TextEditingController(text: "initial text");
+
+  void _onSearchChanged(String value) {
+    print("Searching changed $value");
+  }
+
+  void _onSearchSubmitted(String value) {
+    print("Searching submitted $value");
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: const Text('Discover'),
+          title: CupertinoSearchTextField(
+            controller: _textEditingController,
+            onChanged: _onSearchChanged,
+            onSubmitted: _onSearchSubmitted,
+          ),
           bottom: TabBar(
             splashFactory: NoSplash.splashFactory,
             padding: const EdgeInsets.symmetric(
@@ -48,6 +76,7 @@ class DiscoverScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             GridView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 20,
               padding: const EdgeInsets.all(
                 Sizes.size6,
@@ -67,13 +96,21 @@ class DiscoverScreen extends StatelessWidget {
               //   ),
               itemBuilder: (context, index) => Column(
                 children: [
-                  AspectRatio(
-                    aspectRatio: 9 / 16,
-                    child: FadeInImage.assetNetwork(
-                      placeholder: "assets/images/placeholder.jpg",
-                      image:
-                          "https://scontent-ssn1-1.cdninstagram.com/v/t51.29350-15/452384821_510839558053963_4842591295740191804_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MCJ9&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=cOdvKY0V2goQ7kNvgFdIr3I&edm=AEhyXUkBAAAA&ccb=7-5&ig_cache_key=MzQxNzEyNTcxMjQ3Mjg4MDk1Nw%3D%3D.2-ccb7-5&oh=00_AYDDgUMMzbRu991PUbi5QfxyFkxEo1g8G_Sa2lWOUCf_jA&oe=66BDF4D5&_nc_sid=8f1549",
-                      fit: BoxFit.cover,
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size4,
+                      ),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: 9 / 16,
+                      child: FadeInImage.assetNetwork(
+                        placeholder: "assets/images/placeholder.jpg",
+                        image:
+                            "https://scontent-ssn1-1.cdninstagram.com/v/t51.29350-15/452384821_510839558053963_4842591295740191804_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MCJ9&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=cOdvKY0V2goQ7kNvgFdIr3I&edm=AEhyXUkBAAAA&ccb=7-5&ig_cache_key=MzQxNzEyNTcxMjQ3Mjg4MDk1Nw%3D%3D.2-ccb7-5&oh=00_AYDDgUMMzbRu991PUbi5QfxyFkxEo1g8G_Sa2lWOUCf_jA&oe=66BDF4D5&_nc_sid=8f1549",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Gaps.v10,
