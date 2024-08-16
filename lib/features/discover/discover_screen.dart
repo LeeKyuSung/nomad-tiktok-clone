@@ -92,7 +92,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               //     fit: BoxFit.cover,
               //   ),
               //   itemBuilder: (context, index) => Image.network(
-              //     "https://scontent-ssn1-1.cdninstagram.com/v/t51.29350-15/452384821_510839558053963_4842591295740191804_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MCJ9&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=cOdvKY0V2goQ7kNvgFdIr3I&edm=AEhyXUkBAAAA&ccb=7-5&ig_cache_key=MzQxNzEyNTcxMjQ3Mjg4MDk1Nw%3D%3D.2-ccb7-5&oh=00_AYDDgUMMzbRu991PUbi5QfxyFkxEo1g8G_Sa2lWOUCf_jA&oe=66BDF4D5&_nc_sid=8f1549",
+              //     "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
               //   ),
               itemBuilder: (context, index) => Column(
                 children: [
@@ -108,7 +108,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       child: FadeInImage.assetNetwork(
                         placeholder: "assets/images/placeholder.jpg",
                         image:
-                            "https://scontent-ssn1-1.cdninstagram.com/v/t51.29350-15/452384821_510839558053963_4842591295740191804_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MCJ9&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=cOdvKY0V2goQ7kNvgFdIr3I&edm=AEhyXUkBAAAA&ccb=7-5&ig_cache_key=MzQxNzEyNTcxMjQ3Mjg4MDk1Nw%3D%3D.2-ccb7-5&oh=00_AYDDgUMMzbRu991PUbi5QfxyFkxEo1g8G_Sa2lWOUCf_jA&oe=66BDF4D5&_nc_sid=8f1549",
+                            "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -134,7 +134,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         const CircleAvatar(
                           radius: 15,
                           foregroundImage: NetworkImage(
-                            "https://scontent-hkg1-2.cdninstagram.com/v/t51.2885-19/452389750_1213676459657799_5898586310671656980_n.jpg?_nc_ht=scontent-hkg1-2.cdninstagram.com&_nc_cat=103&_nc_ohc=_nsfKEEq5kEQ7kNvgGRpkrk&edm=AFg4Q8wBAAAA&ccb=7-5&oh=00_AYDMNw9xYJpMNPFS-oB6Ys1MSzWVzyzsaoKT5JSPfMX47w&oe=66BE212B&_nc_sid=0b30b7",
+                            "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
                           ),
                         ),
                         Gaps.h4,
