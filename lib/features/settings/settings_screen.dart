@@ -7,44 +7,28 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Settings'),
-        ),
-        //   body: const Column(
-        //     children: [
-        //       CloseButton(),
-        //     ],
-        //   ),
-        //   body: ListWheelScrollView(
-        //     diameterRatio: 1.5,
-        //     offAxisFraction: 2,
-        //     itemExtent: 200,
-        //     children: [
-        //       for (var x in [1, 2, 1, 1, 1, 1, 1, 1, 1])
-        //         FractionallySizedBox(
-        //           widthFactor: 1,
-        //           child: Container(
-        //             color: Colors.teal,
-        //             alignment: Alignment.center,
-        //             child: const Text(
-        //               "Pick me",
-        //               style: TextStyle(
-        //                 fontSize: 30,
-        //                 color: Colors.white,
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //     ],
-        //   ),
-        body: const Column(
-          children: [
-            CupertinoActivityIndicator(
-              radius: 40,
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            onTap: () => showAboutDialog(
+              context: context,
+              applicationVersion: "1.0.0",
+              applicationLegalese: "All rights reserved. Please don't copy me.",
             ),
-            CircularProgressIndicator(),
-            CircularProgressIndicator.adaptive(),
-          ],
-        ));
+            title: const Text(
+              "About",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            subtitle: const Text("About this app...."),
+          ),
+          const AboutListTile(),
+        ],
+      ),
+    );
   }
 }
