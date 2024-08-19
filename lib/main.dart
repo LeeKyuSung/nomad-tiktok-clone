@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation_screen.dart';
 
 Future<void> main() async {
@@ -58,6 +56,11 @@ class TikTokApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
+        tabBarTheme: TabBarTheme(
+          indicatorColor: Colors.black,
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey.shade500,
+        ),
       ),
       darkTheme: ThemeData(
         textTheme: Typography.whiteMountainView,
@@ -70,9 +73,18 @@ class TikTokApp extends StatelessWidget {
           color: Colors.grey.shade800,
         ),
         primaryColor: const Color(0xFFE9435A),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: const Color(0xFFE9435A),
+          selectionColor: const Color(0xFFE9435A).withOpacity(.5),
+        ),
+        tabBarTheme: const TabBarTheme(
+          indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey,
+        ),
       ),
-      //   home: const MainNavigationScreen(),
-      home: const SignUpScreen(),
+      home: const MainNavigationScreen(),
+      //   home: const SignUpScreen(),
       //   home: const LayoutBuilderCodeLab(),
     );
   }
