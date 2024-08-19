@@ -108,6 +108,8 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          elevation: 0,
+          color: Colors.transparent,
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 300),
             opacity: _showingPage == Page.first ? 0 : 1,
