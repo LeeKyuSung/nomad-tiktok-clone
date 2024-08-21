@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation_screen.dart';
 
 Future<void> main() async {
@@ -33,6 +34,7 @@ class TikTokApp extends StatelessWidget {
       // ),
       themeMode: ThemeMode.system,
       theme: ThemeData(
+        // useMaterial3: false,
         textTheme: Typography.blackMountainView,
         brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.white,
@@ -49,6 +51,7 @@ class TikTokApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
           elevation: .5,
           titleTextStyle: TextStyle(
             color: Colors.black,
@@ -66,11 +69,18 @@ class TikTokApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        // useMaterial3: false,
         textTheme: Typography.whiteMountainView,
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.grey.shade900,
+          surfaceTintColor: Colors.grey.shade900,
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: Sizes.size16 + Sizes.size2,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         bottomAppBarTheme: BottomAppBarTheme(
           color: Colors.grey.shade800,
@@ -86,8 +96,8 @@ class TikTokApp extends StatelessWidget {
           unselectedLabelColor: Colors.grey,
         ),
       ),
-      home: const MainNavigationScreen(),
-      //   home: const SignUpScreen(),
+      //   home: const MainNavigationScreen(),
+      home: const SignUpScreen(),
       //   home: const LayoutBuilderCodeLab(),
     );
   }
