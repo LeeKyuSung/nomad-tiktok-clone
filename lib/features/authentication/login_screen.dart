@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   void _onSignUpTab(BuildContext context) {
-    Navigator.of(context).pop();
+    Navigator.of(context).pop("Hello!");
   }
 
   void _onEmailLoginTap(BuildContext context) {
