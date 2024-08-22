@@ -28,6 +28,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    S.load(const Locale('en'));
     return OrientationBuilder(
       builder: (context, orientation) {
         print(orientation);
@@ -61,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
                   Opacity(
                     opacity: 0.7,
                     child: Text(
-                      S.of(context).signUpSubtitle,
+                      S.of(context).signUpSubtitle(5),
                       style: const TextStyle(
                         fontSize: Sizes.size16,
                         fontWeight: FontWeight.w300,
@@ -120,7 +121,7 @@ class SignUpScreen extends StatelessWidget {
                   Text(S.of(context).alreadyHaveAnAccount),
                   Gaps.h5,
                   Text(
-                    S.of(context).logIn,
+                    S.of(context).logIn("female"),
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       color: Theme.of(context).primaryColor,
