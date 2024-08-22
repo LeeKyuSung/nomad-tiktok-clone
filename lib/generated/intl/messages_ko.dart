@@ -20,14 +20,21 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ko';
 
-  static String m0(gender) => "Log in";
+  static String m0(value) => "${value}";
 
-  static String m1(nameOfTheApp) => "${nameOfTheApp} 계정으로 로그인하세요";
+  static String m1(value, value2) =>
+      "${value} ${Intl.plural(value2, one: 'comment', other: 'comments')}";
 
-  static String m2(videoCount) =>
+  static String m2(value) => "${value}";
+
+  static String m3(gender) => "Log in";
+
+  static String m4(nameOfTheApp) => "${nameOfTheApp} 계정으로 로그인하세요";
+
+  static String m5(videoCount) =>
       "Create a profile, follow other accounts, make your own videos, and more.";
 
-  static String m3(nameOfTheApp) => " ${nameOfTheApp}에 가입하세요";
+  static String m6(nameOfTheApp) => " ${nameOfTheApp}에 가입하세요";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -35,11 +42,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue with Apple"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "commentCount": m0,
+        "commentTitle": m1,
         "emailPasswordButton":
             MessageLookupByLibrary.simpleMessage("Use email & password"),
-        "logIn": m0,
-        "loginTitle": m1,
-        "signUpSubtitle": m2,
-        "signUpTitle": m3
+        "likeCount": m2,
+        "logIn": m3,
+        "loginTitle": m4,
+        "signUpSubtitle": m5,
+        "signUpTitle": m6
       };
 }
