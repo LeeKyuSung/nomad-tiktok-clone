@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation_screen.dart';
-import "package:flutter_gen/gen_l10n/intl_generated.dart";
+import 'package:tiktok_clone/generated/l10n.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +30,16 @@ class TikTokApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ko'),
+      ],
       // theme: ThemeData(
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       //   useMaterial3: true,
