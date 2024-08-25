@@ -38,6 +38,12 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
     _initVideo();
   }
 
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
+  }
+
   Future convertTempFileToVideo(String tempFilePath) async {
     final tempFile = File(tempFilePath);
     final fileContent = await tempFile.readAsBytes();
