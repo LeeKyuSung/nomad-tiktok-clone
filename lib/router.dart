@@ -2,23 +2,28 @@ import 'package:go_router/go_router.dart';
 import 'package:tiktok_clone/common/widgets/main_navigation/main_navigation_screen.dart';
 import 'package:tiktok_clone/features/authentication/login_screen.dart';
 import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
+import 'package:tiktok_clone/features/inbox/activity_screen.dart';
+import 'package:tiktok_clone/features/inbox/chat_detail_screen.dart';
+import 'package:tiktok_clone/features/inbox/chats_screen.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
+import 'package:tiktok_clone/features/videos/video_recording_screen.dart';
 
 final router = GoRouter(
+  initialLocation: "/inbox",
   routes: [
     GoRoute(
       name: SignUpScreen.routeName,
-      path: SignUpScreen.routeURL,
+      path: "/",
       builder: (context, state) => const SignUpScreen(),
     ),
     GoRoute(
       name: LoginScreen.routeName,
-      path: LoginScreen.routeURL,
+      path: "/login",
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
       name: InterestsScreen.routeName,
-      path: InterestsScreen.routeURL,
+      path: "/tutorial",
       builder: (context, state) => const InterestsScreen(),
     ),
     GoRoute(
@@ -29,5 +34,29 @@ final router = GoRouter(
         return MainNavigationScreen(tab: tab);
       },
     ),
+    GoRoute(
+      name: ActivityScreen.routeName,
+      path: "/activity",
+      builder: (context, state) => const ActivityScreen(),
+    ),
+    GoRoute(
+      name: ChatsScreen.routeName,
+      path: "/chats",
+      builder: (context, state) => const ChatsScreen(),
+      routes: [
+        GoRoute(
+          name: ChatDetailScreen.routeName,
+          path: ":chatId",
+          builder: (context, state) {
+            final chatId = state.params['chatId']!;
+            return ChatDetailScreen(chatId: chatId);
+          },
+        ),
+      ],
+    ),
+    GoRoute(
+      name: VideoRecordingScreen.routeName,
+      path: "/upload",
+    )
   ],
 );
