@@ -4,7 +4,6 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/settings/settings_screen.dart';
 import 'package:tiktok_clone/features/user/widgets/persistent_tab_bar.dart';
-import 'package:tiktok_clone/utils.dart';
 
 class UserProfileScreen extends StatefulWidget {
   final String username;
@@ -30,7 +29,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkMode(context);
     return Scaffold(
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       body: SafeArea(
