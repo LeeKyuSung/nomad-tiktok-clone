@@ -9,18 +9,24 @@ import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 import 'package:tiktok_clone/generated/l10n.dart';
 
 class SignUpScreen extends StatelessWidget {
-  static String routeURL = "/";
   static String routeName = "/signUp";
+  static String routeURL = "/";
   const SignUpScreen({super.key});
 
   void _onLoginTap(BuildContext context) async {
-    context.go(LoginScreen.routeName);
+    context.goNamed(LoginScreen.routeName);
   }
 
   void _onEmailTap(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const UsernameScreen(),
+      ),
+    );
     // context.push("/users/규성?show=likes");
     // context.push(UsernameScreen.routeName);
-    context.pushNamed(UsernameScreen.routeName);
+    // context.pushNamed(UsernameScreen.routeName);
     /*Navigator.of(context).push(
       //   MaterialPageRoute(
       //     builder: (context) => const UsernameScreen(),
