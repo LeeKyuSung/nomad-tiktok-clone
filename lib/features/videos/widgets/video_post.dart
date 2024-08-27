@@ -33,6 +33,8 @@ class _VideoPostState extends State<VideoPost>
 
   bool _isPaused = false;
 
+  bool _autoMute = videoConfig.autoMute;
+
   void _initVideoPlayer() async {
     await _videoPlayerController.initialize();
     await _videoPlayerController.setLooping(true);
@@ -62,6 +64,12 @@ class _VideoPostState extends State<VideoPost>
       upperBound: 1.5,
       value: 1.5,
     );
+
+    videoConfig.addListener(() {
+      setState(() {
+        _autoMute = videoConfig.autoMute;
+      });
+    });
   }
 
   @override
@@ -158,13 +166,13 @@ class _VideoPostState extends State<VideoPost>
             left: 20,
             top: 40,
             child: IconButton(
-              icon: const FaIcon(
-                false
+              icon: FaIcon(
+                _autoMute
                     ? FontAwesomeIcons.volumeOff
                     : FontAwesomeIcons.volumeHigh,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: videoConfig.toggleAutoMute,
             ),
           ),
           const Positioned(
