@@ -27,88 +27,86 @@ class TikTokApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VideoConfig(
-      child: MaterialApp.router(
-        routerConfig: router,
-        debugShowCheckedModeBanner: false,
-        title: 'TikTok Clone',
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en'),
-          Locale('ko'),
-        ],
-        // theme: ThemeData(
-        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        //   useMaterial3: true,
-        // ),
-        themeMode: ThemeMode.system,
-        theme: ThemeData(
-          // useMaterial3: false,
-          textTheme: Typography.blackMountainView,
-          brightness: Brightness.light,
-          scaffoldBackgroundColor: Colors.white,
-          bottomAppBarTheme: BottomAppBarTheme(
-            color: Colors.grey.shade50,
-          ),
-          primaryColor: const Color(0xFFE9435A),
-          textSelectionTheme: TextSelectionThemeData(
-            cursorColor: const Color(0xFFE9435A),
-            selectionColor: const Color(0xFFE9435A).withOpacity(.5),
-          ),
-          // splashColor: Colors.transparent,
-          // highlightColor: Colors.transparent,
-          appBarTheme: const AppBarTheme(
-            foregroundColor: Colors.black,
-            backgroundColor: Colors.white,
-            surfaceTintColor: Colors.white,
-            elevation: .5,
-            titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: Sizes.size16 + Sizes.size2,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          tabBarTheme: TabBarTheme(
-            indicatorColor: Colors.black,
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.grey.shade500,
-          ),
-          listTileTheme: const ListTileThemeData(
-            iconColor: Colors.black,
+    return MaterialApp.router(
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
+      title: 'TikTok Clone',
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ko'),
+      ],
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        // useMaterial3: false,
+        textTheme: Typography.blackMountainView,
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey.shade50,
+        ),
+        primaryColor: const Color(0xFFE9435A),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: const Color(0xFFE9435A),
+          selectionColor: const Color(0xFFE9435A).withOpacity(.5),
+        ),
+        // splashColor: Colors.transparent,
+        // highlightColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
+          elevation: .5,
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: Sizes.size16 + Sizes.size2,
+            fontWeight: FontWeight.w600,
           ),
         ),
-        darkTheme: ThemeData(
-          // useMaterial3: false,
-          textTheme: Typography.whiteMountainView,
-          brightness: Brightness.dark,
-          scaffoldBackgroundColor: Colors.black,
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.grey.shade900,
-            surfaceTintColor: Colors.grey.shade900,
-            titleTextStyle: const TextStyle(
-              color: Colors.white,
-              fontSize: Sizes.size16 + Sizes.size2,
-              fontWeight: FontWeight.w600,
-            ),
+        tabBarTheme: TabBarTheme(
+          indicatorColor: Colors.black,
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey.shade500,
+        ),
+        listTileTheme: const ListTileThemeData(
+          iconColor: Colors.black,
+        ),
+      ),
+      darkTheme: ThemeData(
+        // useMaterial3: false,
+        textTheme: Typography.whiteMountainView,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey.shade900,
+          surfaceTintColor: Colors.grey.shade900,
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: Sizes.size16 + Sizes.size2,
+            fontWeight: FontWeight.w600,
           ),
-          bottomAppBarTheme: BottomAppBarTheme(
-            color: Colors.grey.shade800,
-          ),
-          primaryColor: const Color(0xFFE9435A),
-          textSelectionTheme: TextSelectionThemeData(
-            cursorColor: const Color(0xFFE9435A),
-            selectionColor: const Color(0xFFE9435A).withOpacity(.5),
-          ),
-          tabBarTheme: const TabBarTheme(
-            indicatorColor: Colors.white,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.grey,
-          ),
+        ),
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey.shade800,
+        ),
+        primaryColor: const Color(0xFFE9435A),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: const Color(0xFFE9435A),
+          selectionColor: const Color(0xFFE9435A).withOpacity(.5),
+        ),
+        tabBarTheme: const TabBarTheme(
+          indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey,
         ),
       ),
     );

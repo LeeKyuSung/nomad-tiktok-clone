@@ -28,14 +28,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: ListView(
         children: [
-          SwitchListTile.adaptive(
-            value: VideoConfigData.of(context).autoMute,
-            onChanged: (value) {
-              VideoConfigData.of(context).toggleMuted();
-            },
-            title: const Text("Auto Mute"),
-            subtitle: const Text("Videos will be muted by default."),
-          ),
           ListTile(
             title: const Text("Log out (iOS / Bottom)"),
             textColor: Colors.red,
