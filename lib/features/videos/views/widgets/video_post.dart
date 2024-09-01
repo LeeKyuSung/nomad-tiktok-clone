@@ -63,6 +63,12 @@ class VideoPostState extends ConsumerState<VideoPost>
       upperBound: 1.5,
       value: 1.5,
     );
+
+    if (ref.read(playbackConfigProvider).muted) {
+      _videoPlayerController.setVolume(0);
+    } else {
+      _videoPlayerController.setVolume(1);
+    }
   }
 
   @override
@@ -73,6 +79,8 @@ class VideoPostState extends ConsumerState<VideoPost>
 
   void _onPlaybackConfigChanged() {
     if (!mounted) return;
+    final muted = ref.read(playbackConfigProvider).muted;
+    ref.read(playbackConfigProvider.notifier).setMuted(!muted);
     if (ref.read(playbackConfigProvider).muted) {
       _videoPlayerController.setVolume(0);
     } else {
@@ -124,6 +132,13 @@ class VideoPostState extends ConsumerState<VideoPost>
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(playbackConfigProvider, (previous, next) {
+      if (ref.read(playbackConfigProvider).muted) {
+        _videoPlayerController.setVolume(0);
+      } else {
+        _videoPlayerController.setVolume(1);
+      }
+    });
     // S.load(const Locale("en"));
     return VisibilityDetector(
       key: Key("${widget.index}"),
