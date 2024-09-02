@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930447725105",
+    "project_id": "kyusung-nomad-tiktok-clo-bf877",
+    "storage_bucket": "kyusung-nomad-tiktok-clo-bf877.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930447725105:android:0926db7b49cb60cdc7bb10",
+        "android_client_info": {
+          "package_name": "com.example.tiktok_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR8kDAjEDyt_JTzg3ONnYXqbJ2alFqCbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
