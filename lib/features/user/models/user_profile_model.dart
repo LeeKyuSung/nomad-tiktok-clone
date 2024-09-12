@@ -1,5 +1,3 @@
-import 'dart:async';
-
 class UserProfileModel {
   final String uid;
   final String email;
