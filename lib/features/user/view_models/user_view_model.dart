@@ -9,6 +9,7 @@ import 'package:tiktok_clone/features/user/repos/user_reop.dart';
 class UsersViewModel extends AsyncNotifier<UserProfileModel> {
   late final UserRepository _userRepository;
   late final AuthenticationRepository _authenticationRepository;
+
   @override
   FutureOr<UserProfileModel> build() async {
     _userRepository = ref.read(userRepo);
@@ -31,6 +32,7 @@ class UsersViewModel extends AsyncNotifier<UserProfileModel> {
     }
     state = const AsyncValue.loading();
     final profile = UserProfileModel(
+      hasAvatar: false,
       bio: "undefined",
       link: "undefined",
       email: credential.user!.email ?? "anon@anon.com",
@@ -39,6 +41,12 @@ class UsersViewModel extends AsyncNotifier<UserProfileModel> {
     );
     _userRepository.createProfile(profile);
     state = AsyncValue.data(profile);
+  }
+
+  Future<void> onAvatarUpload() async {
+    if (state.value == null) return;
+    state = AsyncValue.data(state.value!.copyWith(hasAvatar: true));
+    await _userRepository.updateUser(state.value!.uid, {"hasAvatar": true});
   }
 }
 
