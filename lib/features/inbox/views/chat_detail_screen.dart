@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/inbox/view_model/messages_view_model.dart';
+import 'package:tiktok_clone/utils.dart';
 
-class ChatDetailScreen extends StatefulWidget {
+class ChatDetailScreen extends ConsumerStatefulWidget {
   static const String routeName = "chatDetail";
   final String chatId;
   const ChatDetailScreen({
@@ -12,12 +15,24 @@ class ChatDetailScreen extends StatefulWidget {
   });
 
   @override
-  State<ChatDetailScreen> createState() => _ChatDetailScreenState();
+  ConsumerState<ChatDetailScreen> createState() => _ChatDetailScreenState();
 }
 
-class _ChatDetailScreenState extends State<ChatDetailScreen> {
+class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
+  final TextEditingController _textEditingController = TextEditingController();
+
+  void _onSendPress() {
+    final text = _textEditingController.text;
+    if (text == "") {
+      return;
+    }
+    ref.read(messagesProvider.notifier).sendMessage(text);
+    _textEditingController.text = "";
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isLoading = ref.watch(messagesProvider).isLoading;
     return Scaffold(
       appBar: AppBar(
         title: const ListTile(
@@ -106,19 +121,48 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
           Positioned(
             bottom: 0,
             width: MediaQuery.of(context).size.width,
-            child: BottomAppBar(
-              color: Colors.grey.shade50,
-              child: Row(
-                children: [
-                  const Expanded(child: TextField()),
-                  Gaps.h20,
-                  Container(
-                    child: const FaIcon(FontAwesomeIcons.paperPlane),
-                  )
-                ],
+            child: Container(
+              color: isDarkMode(context) ? Colors.black : Colors.grey.shade50,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: Sizes.size40,
+                  right: Sizes.size40,
+                  top: Sizes.size10,
+                  bottom: MediaQuery.of(context).padding.bottom,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: _textEditingController,
+                        decoration: InputDecoration(
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              Sizes.size12,
+                            ),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: Sizes.size12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Gaps.h20,
+                    IconButton(
+                      onPressed: isLoading ? null : _onSendPress,
+                      icon: FaIcon(
+                        isLoading
+                            ? FontAwesomeIcons.hourglass
+                            : FontAwesomeIcons.paperPlane,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
