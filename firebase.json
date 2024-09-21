@@ -1,1 +1,47 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"kyusung-nomad-tiktok-clo-bf877","appId":"1:930447725105:android:0926db7b49cb60cdc7bb10","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"kyusung-nomad-tiktok-clo-bf877","appId":"1:930447725105:ios:67d93a6fc6ecc61bc7bb10","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"kyusung-nomad-tiktok-clo-bf877","configurations":{"android":"1:930447725105:android:0926db7b49cb60cdc7bb10","ios":"1:930447725105:ios:67d93a6fc6ecc61bc7bb10","web":"1:930447725105:web:6b412e1b980e798dc7bb10"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "kyusung-nomad-tiktok-clo-bf877",
+          "appId": "1:930447725105:android:0926db7b49cb60cdc7bb10",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "kyusung-nomad-tiktok-clo-bf877",
+          "appId": "1:930447725105:ios:67d93a6fc6ecc61bc7bb10",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "kyusung-nomad-tiktok-clo-bf877",
+          "configurations": {
+            "android": "1:930447725105:android:0926db7b49cb60cdc7bb10",
+            "ios": "1:930447725105:ios:67d93a6fc6ecc61bc7bb10",
+            "web": "1:930447725105:web:6b412e1b980e798dc7bb10"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}
