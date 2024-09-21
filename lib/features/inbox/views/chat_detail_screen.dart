@@ -73,7 +73,7 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
       ),
       body: Stack(
         children: [
-          ref.watch(chatProvider).when(
+          ref.watch(chatProvider("XxSdHQgPlVBOJXcxWkpw")).when(
                 data: (data) {
                   return ListView.separated(
                     reverse: true,
