@@ -38,7 +38,6 @@ class VideoPostState extends ConsumerState<VideoPost>
   bool _isPaused = false;
 
   void _onLikeTap() {
-    print("Like tapped");
     ref.read(videoPostProvider(widget.videoData.id).notifier).likeVideo();
   }
 
