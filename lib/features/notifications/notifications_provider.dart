@@ -25,6 +25,20 @@ class NotificationsProvider extends AsyncNotifier {
       print("I just got a message and I'm in the foreground");
       print(event.notification?.title);
     });
+    // Background
+    FirebaseMessaging.onMessageOpenedApp.listen((notification) {
+      print("I just got a message and I'm in the background");
+      print(notification.notification?.title);
+      print(notification.data);
+    });
+    // Terminated
+    final notification = await _messaging.getInitialMessage();
+    if (notification != null) {
+      print(notification.notification?.title);
+      print(notification.data);
+    } else {
+      print("No notification");
+    }
   }
 
   @override
